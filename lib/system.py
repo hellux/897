@@ -3,6 +3,9 @@ from kivy.core.window import Window
 from os import environ, name
 from sys import version
 
+
+
+
 def platform():
 	if "ANDROID" in str(environ):
 		return "android"

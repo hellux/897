@@ -56,7 +56,7 @@ class EnsDebugger(Widget):
             self.label_text = "fps: {:.0f}".format(Clock.get_fps())
 
 class EnsScore(Widget):
-    """displays and stores player score and lives"""
+    """displays and stores score and lives"""
     label = ObjectProperty(None)
     score = NumericProperty(0)
     lives = NumericProperty(0)

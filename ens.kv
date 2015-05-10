@@ -9,7 +9,7 @@
 <EnsPlayer>
 	canvas:
 		Color:
-			rgb: self.color
+			rgba: self.color
 		Quad:
 			points: self.points
 		Color:
@@ -18,7 +18,7 @@
 <EnsPlayerRemains>
 	canvas:
 		Color
-			rgb: self.color
+			rgba: self.color
 		Mesh:
 			vertices: self.vertices
 			indices: self.indices
@@ -35,7 +35,7 @@
 <EnsAsteroid>
 	canvas:
 		Color:
-			rgb: 0.5, 0.5, 0.5
+			rgb: self.color
 		Mesh:
 			vertices: self.vertices
 			indices: self.indices
@@ -77,11 +77,14 @@
 <EnsStart>
 	lbl_title: lbl_title
 	lbl_start: lbl_start
+	lbl_info: lbl_info
 
 	Label:
 		id: lbl_title
 	Label:
 		id: lbl_start
+	Label:
+		id: lbl_info
 
 <EnsEnd>
 	lbl_game_over: lbl_game_over
@@ -99,11 +102,11 @@
 	Label:
 		id: lbl_retry
 		size: self.texture_size
-		pos: self.parent.w/4 - self.width/2, self.parent.h/3 - self.height/2
+		pos: self.parent.res_x/4 - self.width/2, self.parent.res_y*0.3 - self.height/2
 	Label:
 		id: lbl_exit
 		size: self.texture_size
-		pos: self.parent.w/4*3 - self.width/2, self.parent.h/3 - self.height/2
+		pos: self.parent.res_x/4*3 - self.width/2, self.parent.res_y*0.3 - self.height/2
 
 <EnsGame>:
 	player: ens_player
