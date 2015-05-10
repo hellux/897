@@ -1,0 +1,118 @@
+#:kivy 1.9.0
+
+#:import EnsPlayer lib.player
+#:import EnsPlayerRemains lib.player
+#:import EnsAsteroid lib.asteroid
+#:import EnsBullet lib.bullet
+#:import EnsParticle lib.particle
+
+<EnsPlayer>
+	canvas:
+		Color:
+			rgb: self.color
+		Quad:
+			points: self.points
+		Color:
+			rgba: 1, 1, 1, 0.1
+
+<EnsPlayerRemains>
+	canvas:
+		Color
+			rgb: self.color
+		Mesh:
+			vertices: self.vertices
+			indices: self.indices
+			mode: "triangle_fan"
+
+<EnsBullet>
+	canvas:
+		Color:
+			rgb: 1, 1, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+
+<EnsAsteroid>
+	canvas:
+		Color:
+			rgb: 0.5, 0.5, 0.5
+		Mesh:
+			vertices: self.vertices
+			indices: self.indices
+			mode: "triangle_fan"
+		Color:
+			rgba: 0.5, 0.5, 0.5, 0.1
+	
+<EnsParticle>
+	canvas:
+		Color:
+			rgb: self.color
+
+		Rectangle:
+			pos: self.pos
+			size: self.width, self.width
+
+<EnsDebugger>
+	label: label
+	Label:
+		halign: "right"
+		id: label
+		markup: True
+		font_size: self.parent.font_size
+		font_name: "DroidSansMono"
+		text: self.parent.label_text
+		size: self.texture_size
+		pos: self.pos
+
+<EnsScore>
+	label: label
+	Label:
+		id: label
+		font_size: self.parent.font_size
+		font_name: "DroidSansMono"
+		text: str(self.parent.score)
+		size: self.texture_size
+		pos: 0, self.parent.h-self.height
+
+<EnsStart>
+	lbl_title: lbl_title
+	lbl_start: lbl_start
+
+	Label:
+		id: lbl_title
+	Label:
+		id: lbl_start
+
+<EnsEnd>
+	lbl_game_over: lbl_game_over
+	lbl_score: lbl_score
+	lbl_best: lbl_best
+	lbl_retry: lbl_retry
+	lbl_exit: lbl_exit
+
+	Label:
+		id: lbl_game_over
+	Label:
+		id: lbl_score
+	Label:
+		id: lbl_best
+	Label:
+		id: lbl_retry
+		size: self.texture_size
+		pos: self.parent.w/4 - self.width/2, self.parent.h/3 - self.height/2
+	Label:
+		id: lbl_exit
+		size: self.texture_size
+		pos: self.parent.w/4*3 - self.width/2, self.parent.h/3 - self.height/2
+
+<EnsGame>:
+	player: ens_player
+	debugger: ens_debugger
+	score: ens_score
+	
+	EnsPlayer: 
+		id: ens_player
+	EnsDebugger:
+		id: ens_debugger
+	EnsScore:
+		id: ens_score
