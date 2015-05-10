@@ -11,8 +11,7 @@ def platform():
 		return "android"
 	if name == "nt" or name == "posix":
 		return "pc"
-if platform() == "pc":
-    Window.size = 1920, 1080
+
 WIDTH, HEIGHT = Window.size
 PY_VER = version[:version.find("(")-1] + "\n" + version[version.find("[")+1:-1]
 
