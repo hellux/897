@@ -107,7 +107,6 @@ class EnsEnd(Widget):
         super(EnsEnd, self).__init__()
         for lbl in self.children:
             lbl.font_size = lu(50)
-            lbl.font_name = "DroidSansMono"
 
         self.lbl_game_over.font_size = lu(100)
         self.lbl_game_over.text = "GAME OVER"
